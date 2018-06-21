@@ -28,7 +28,7 @@ public class Item_venda {
 	private Venda venda;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cod_prod_fk", referencedColumnName = "cod_prod", nullable = false)
-	private Produto produto;
+	private Item produto;
 	public Long getId() {
 		return id;
 	}
@@ -53,11 +53,12 @@ public class Item_venda {
 	public void setVenda(Venda venda) {
 		this.venda = venda;
 	}
-	public Produto getProduto() {
+	public Item getProduto() {
 		return produto;
 	}
-	public void setProduto(Produto produto) {
+	public void setProduto(Item produto) {
 		this.produto = produto;
 	}
+	
 	
 }

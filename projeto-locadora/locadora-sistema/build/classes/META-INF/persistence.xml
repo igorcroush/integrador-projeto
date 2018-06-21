@@ -5,10 +5,10 @@
 
 	<persistence-unit name="locadoraProjeto">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>locadora.modelo.Produto</class>
 		<class>locadora.modelo.Funcionario</class>
 		<class>locadora.modelo.Venda</class>
 		<class>locadora.modelo.Item_venda</class>
+		<class>locadora.modelo.Item</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/locadora" />
