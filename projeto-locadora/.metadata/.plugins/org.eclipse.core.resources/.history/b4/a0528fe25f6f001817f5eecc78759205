@@ -1,0 +1,10 @@
+package locadora.modelo;
+
+import java.math.BigDecimal;
+
+public class Produto {
+	private Long id;
+	private String descricao;
+	private BigDecimal preco;
+	private Integer quantidade;
+}

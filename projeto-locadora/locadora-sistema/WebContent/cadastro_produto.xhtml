@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<h:form id="form-prod">
+		<h:panelGrid column="3">
+			
+			<h:outputText value="Descricao" />
+			<h:inputText value="#{produtoMB.produto.descricao}" />
+			<h:outputText value="Preco:" />
+			<p:inputText value="#{produtoMB.produto.preco}" />
+			<h:outputText value="Quantidade" />
+			<p:inputText value="#{produtoMB.produto.quantidade}" />
+
+
+		</h:panelGrid>
+		<p:commandButton value="cadastrar"
+			actionListener="#{produtoMB.salvar()}" update="@form,form-tab,form-prod" />
+	</h:form>
+
+	<h:form id="form-tab">
+		<p:dataTable id="tabelaProd" value="#{produtoMB.produtos}" var="prod">
+			<p:column headerText="Id">
+				<h:outputText value="#{prod.id}" />
+			</p:column>
+			<p:column headerText="Descricao">
+				<h:outputText value="#{prod.descricao}" />
+			</p:column>
+			<p:column headerText="Preco">
+				<h:outputText value="#{prod.preco}" />
+			</p:column>
+			<p:column headerText="Quantidade">
+				<h:outputText value="#{prod.quantidade}" />
+			</p:column>
+			<p:column headerText="Opcoes:">
+				<p:commandButton value="excluir"
+			actionListener="#{produtoMB.excluir(prod.id)}" update="@form,form-tab" />
+			</p:column>
+
+		</p:dataTable>
+
+	</h:form>
+</body>
+</html>

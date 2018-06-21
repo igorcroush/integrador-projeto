@@ -1,0 +1,90 @@
+package locadora.dao;
+
+import java.util.List;
+import static javafx.scene.input.KeyCode.T;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import locadora.banco.Fabrica;
+
+public class GenericoDAO<T> {
+	private Class<T> classe;
+
+	public GenericoDAO(Class<T> classe) {
+		this.classe = classe;
+	}
+
+	public T salvar(T entidade) {
+		EntityManager em = Fabrica.get().createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		try {
+			et.begin();
+			em.persist(entidade);
+			et.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			et.rollback();
+		} finally {
+			em.close();
+		}
+		return entidade;
+	}
+
+	public T alterar(T entidade) {
+		EntityManager em = Fabrica.get().createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		try {
+			et.begin();
+			em.merge(entidade);
+			et.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			et.rollback();
+		} finally {
+			em.close();
+		}
+		return entidade;
+	}
+
+	public void excluir(long id) {
+		EntityManager em = Fabrica.get().createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		try {
+			et.begin();
+			T entidade = em.find(classe, id);
+			em.remove(entidade);
+			et.commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			et.rollback();
+		} finally {
+			em.close();
+		}
+
+	}
+
+	public T buscar(Long id) {
+		EntityManager em = Fabrica.get().createEntityManager();
+		try {
+			return em.find(classe, id);
+		} finally {
+			em.close();
+		}
+	}
+
+	public List<T> buscarTodos() {
+		EntityManager em = Fabrica.get().createEntityManager();
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<T> cq = cb.createQuery(classe);
+		try {
+			cq.from(classe);
+			return em.createQuery(cq).getResultList();
+		} finally {
+			em.close();
+		}
+	}
+
+}

@@ -1,0 +1,17 @@
+package locadora.banco;
+
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class Fabrica {
+	public static EntityManagerFactory factory;
+
+	public static EntityManagerFactory get() {
+		if (factory == null) {
+			factory = Persistence.createEntityManagerFactory("locadoraProjeto");
+		}
+		return factory;
+
+	}
+
+}

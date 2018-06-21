@@ -1,0 +1,25 @@
+package locadora.modelo;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+;
+
+@Entity
+public class Produto {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	@Column(name = "desc_prod", nullable = false, length = 50)
+	private String descricao;
+	@Column(name = "preco_prod", nullable = false, precision = 7, scale = 2)
+	private BigDecimal preco;
+	@Column(name = "qtde_estoque", nullable = false)
+	private Integer quantidade;
+
+}

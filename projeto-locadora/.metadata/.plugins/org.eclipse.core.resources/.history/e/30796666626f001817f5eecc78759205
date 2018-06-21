@@ -1,0 +1,37 @@
+package controle.mb;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+import locadora.dao.GenericoDAO;
+import locadora.modelo.Produto;
+
+
+
+@ManagedBean
+@ViewScoped
+public class ProdutoMB {
+	
+	private Produto produto = new Produto();
+	private List<Produto> produtos = new ArrayList();
+	private GenericoDAO<Produto> daoGenerico = new GenericoDAO<Produto>(Produto.class);
+
+	public Produto salvar() {
+		if (produto.getId() == null) {
+			daoGenerico.salvar(produto);
+		} else {
+			daoGenerico.alterar(produto);
+		}
+		daoGenerico.buscarTodos();
+		produto = new Produto();
+		return produto;
+	}
+
+	
+
+	
+
+}

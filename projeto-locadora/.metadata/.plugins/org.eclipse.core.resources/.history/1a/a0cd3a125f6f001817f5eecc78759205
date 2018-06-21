@@ -1,0 +1,21 @@
+package controle.mb;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import locadora.dao.GenericoDAO;
+import locadora.modelo.Produto;
+
+public class ProdutoMB {
+	private Produto produto = new Produto();
+	private List<Produto> produtos = new ArrayList();
+	private GenericoDAO<Produto> daoGenerico = new GenericoDAO<Produto>(Produto.class);
+
+	public Produto salvar() {
+		daoGenerico.salvar(produto);
+
+		daoGenerico.buscarTodos();ff
+		produto = new Produto();
+		return produto;
+	}
+}
