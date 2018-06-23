@@ -2,9 +2,11 @@ package locadora.modelo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -16,7 +18,8 @@ public class Cidade {
 	@Column(name = "cod_cid")
 	private Long id;
 	private String nome;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "cod_est_fk", referencedColumnName = "cod_est", nullable = false)
 	private Estado estado;
 
 	public Long getId() {

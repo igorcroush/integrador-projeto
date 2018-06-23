@@ -12,10 +12,10 @@ import javax.persistence.Table;
 public class Estado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "cod_estado")
+	@Column(name = "cod_est")
 	private Long id;
 	private String nome;
-
+	@Column(name = "sigla_est")
 	private String sigla;
 
 	public Long getId() {
