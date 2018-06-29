@@ -25,6 +25,8 @@ public class Pessoa {
 	private String nome;
 	@Column(name = "fone", nullable = false, length = 14)
 	private String telefone;
+	@Column(name = "endereco", nullable = false, length = 14)
+	private String endereco;
 	@Temporal(value = TemporalType.TIMESTAMP)
 	@Column(name = "data_nasc", nullable = false)
 	private Date data_nasc;

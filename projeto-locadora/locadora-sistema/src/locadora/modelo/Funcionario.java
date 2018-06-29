@@ -14,7 +14,8 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "tab_func")
 public class Funcionario extends Pessoa {
-
+	private String cpf;
+	private String tipo;
 	@Column(name = "senha_func", nullable = false)
 	private String senha;
 
