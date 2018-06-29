@@ -3,13 +3,18 @@ package locadora.modelo;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Locacao {
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+public class Devolucao {
 	private Long id;
-	private Date dataLoca;
 	private Date dataEntrega;
-	private Integer qntde;
-	private BigDecimal valorParcial;
+	private BigDecimal multa;
+	@OneToOne
+	private Locacao locacao;
+	@ManyToOne
 	private Funcionario funcionario;
+	@ManyToOne
 	private Cliente cliente;
-	
+
 }
