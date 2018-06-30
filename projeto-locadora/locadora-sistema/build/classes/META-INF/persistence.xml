@@ -9,6 +9,11 @@
 		<class>locadora.modelo.Cidade</class>
 		<class>locadora.modelo.Funcionario</class>
 		<class>locadora.modelo.Pessoa</class>
+		<class>locadora.modelo.Midia</class>
+		<class>locadora.modelo.Locacao</class>
+		<class>locadora.modelo.Fornecedor</class>
+		<class>locadora.modelo.Cliente</class>
+		<class>locadora.modelo.Dependente</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/teste" />

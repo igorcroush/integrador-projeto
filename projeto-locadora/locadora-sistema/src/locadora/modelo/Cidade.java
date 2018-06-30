@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class Cidade {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "cod_cid")
+	@Column(name = "Codcid")
 	private Long id;
 	private String nome;
 	@ManyToOne(fetch = FetchType.EAGER)

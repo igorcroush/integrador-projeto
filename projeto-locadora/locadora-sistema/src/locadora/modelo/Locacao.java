@@ -20,6 +20,7 @@ import javax.persistence.TemporalType;
 public class Locacao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name ="codLoca", nullable = false)
 	private Long id;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name ="dataLocaca", nullable = false)

@@ -31,7 +31,7 @@ public class Pessoa {
 	@Column(name = "data_nasc", nullable = false)
 	private Date data_nasc;
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "cod_cidfk", referencedColumnName = "cod_cid", nullable = false)
+	@JoinColumn(name = "Codcidfk", referencedColumnName = "Codcid", nullable = false)
 	private Cidade cidade;
 
 	public Long getId() {

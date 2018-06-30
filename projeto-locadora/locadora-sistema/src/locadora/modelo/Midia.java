@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,6 +18,7 @@ import javax.persistence.TemporalType;
 public class Midia {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="CodMidia",nullable =false)
 	private Long id;
 	@Column(name="tituloMidia",nullable =false)
 	private String titulo;
@@ -33,5 +36,8 @@ public class Midia {
 	private String estado_midia;
 	@Column(name="generoMidia",nullable = true)
 	private String genero;
+	@ManyToOne
+	@JoinColumn(name = "codFornFk", referencedColumnName = "codForn", nullable = false)
+	private Fornecedor fornecedor;
 
 }
