@@ -2,7 +2,9 @@ package locadora.modelo;
 
 import java.util.Date;
 
-public class Filme {
+import javax.persistence.Entity;
+@Entity
+public class Filme extends Midia {
 	
 	private Double duracao;
 	private String sinopse;

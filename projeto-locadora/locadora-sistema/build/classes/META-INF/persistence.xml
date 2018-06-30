@@ -14,6 +14,10 @@
 		<class>locadora.modelo.Fornecedor</class>
 		<class>locadora.modelo.Cliente</class>
 		<class>locadora.modelo.Dependente</class>
+		<class>locadora.modelo.Devolucao</class>
+		<class>locadora.modelo.Filme</class>
+		<class>locadora.modelo.Jogo</class>
+		<class>locadora.modelo.ItemLocacao</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/teste" />
