@@ -25,13 +25,10 @@ public class Pessoa {
 	private String nome;
 	@Column(name = "fone", nullable = false, length = 14)
 	private String telefone;
-	@Column(name = "endereco", nullable = false, length = 14)
+	@Column(name = "endereco", nullable = false, length = 50)
 	private String endereco;
-	@Temporal(value = TemporalType.TIMESTAMP)
-	@Column(name = "data_nasc", nullable = false)
-	private Date data_nasc;
+	private String numero;
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "Codcidfk", referencedColumnName = "Codcid", nullable = false)
 	private Cidade cidade;
 
 	public Long getId() {
@@ -56,14 +53,6 @@ public class Pessoa {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-
-	public Date getData_nasc() {
-		return data_nasc;
-	}
-
-	public void setData_nasc(Date data_nasc) {
-		this.data_nasc = data_nasc;
 	}
 
 	public Cidade getCidade() {

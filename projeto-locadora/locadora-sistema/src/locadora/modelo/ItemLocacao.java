@@ -10,25 +10,72 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 @Entity
 public class ItemLocacao {
-	@Id 
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(name = "dtLocacao", nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataLoca;
-	@Column(name="qtde_locada")
+	@Column(name = "qtde_locada")
 	private Integer qntde;
-	private BigDecimal valorTotal;
+	@Column(name = "valor", scale = 7, precision = 2)
+	private BigDecimal valor;
 	@ManyToOne
-	@JoinColumn(name = "codMidiafk", referencedColumnName = "codMidia", nullable = false)
-	private Midia midia;
-	@ManyToOne
-	@JoinColumn(name = "codlocalfk", referencedColumnName = "codLoca", nullable = false)
 	private Locacao locacao;
-	@Column(name="statusLoca")
-	private Boolean status;
+	@OneToMany
+	private Filme filme;
+	@OneToMany
+	private Jogo jogo;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Integer getQntde() {
+		return qntde;
+	}
+
+	public void setQntde(Integer qntde) {
+		this.qntde = qntde;
+	}
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+
+	public Locacao getLocacao() {
+		return locacao;
+	}
+
+	public void setLocacao(Locacao locacao) {
+		this.locacao = locacao;
+	}
+
+	public Filme getFilme() {
+		return filme;
+	}
+
+	public void setFilme(Filme filme) {
+		this.filme = filme;
+	}
+
+	public Jogo getJogo() {
+		return jogo;
+	}
+
+	public void setJogo(Jogo jogo) {
+		this.jogo = jogo;
+	}
+
 }

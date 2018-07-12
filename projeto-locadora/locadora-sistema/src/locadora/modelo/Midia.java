@@ -10,11 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-@Entity
-@Table(name="tab_midia")
+@MappedSuperclass
 public class Midia {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,7 +37,7 @@ public class Midia {
 	@Column(name="generoMidia",nullable = true)
 	private String genero;
 	@ManyToOne
-	@JoinColumn(name = "codFornFk", referencedColumnName = "codForn", nullable = false)
 	private Fornecedor fornecedor;
+	
 
 }
